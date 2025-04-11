@@ -16,13 +16,11 @@ class DataController implements Controller {
 
 
    private initializeRoutes() {
-    this.router.get(`${this.path}/get`, this.getAll);
+    this.router.get(`${this.path}/get`, this.dataService.getAll);
+    this.router.post(`${this.path}/create`, this.dataService.create);
+    this.router.delete(`${this.path}/:id`, this.dataService.delete);
    }
-   private getAll = (req: Request, res: Response) => {
-    console.log("Get all item");
-    res.status(200).json(this.router);
 };
-}
 
 
 export default DataController;
